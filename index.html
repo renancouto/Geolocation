@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html class="html">
+<head>
+<meta charset="utf-8">
+<title>Geolocation</title>
+
+<style type="text/css">
+
+* { margin: 0; padding: 0; }
+
+body { font: 16px/1em Arial, sans-serif; }
+table { width: 100%; }
+
+th {
+	background: #066;
+	color: #fff;
+	padding: 10px;
+}
+
+td {
+	background: #ececec;
+	font-size: 20px;
+	padding: 20px 10px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<table>
+	<thead>
+		<tr>
+			<th>Country Code</th>
+			<th>Country Name</th>
+			<th>City</th>
+			<th>Region</th>
+			<th>Region Name</th>
+			<th>Latitude</th>
+			<th>Longitude</th>
+			<th>Postal Code</th>
+			<th>Area Code</th>
+			<th>Metro Code</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td id="CountryCode"></td>
+			<td id="CountryName"></td>
+			<td id="City"></td>
+			<td id="Region"></td>
+			<td id="RegionName"></td>
+			<td id="Latitude"></td>
+			<td id="Longitude"></td>
+			<td id="PostalCode"></td>
+			<td id="AreaCode"></td>
+			<td id="MetroCode"></td>
+		</tr>
+	</tbody>
+</table>
+
+<script src="http://j.maxmind.com/app/geoip.js"></script>
+<script src="geolocation.js"></script>
+
+<script>
+var WriteProperty = function(property) {
+	var val = Geolocation[property] ? Geolocation[property] : '?';
+	document.getElementById(property).innerHTML = val;
+};
+
+WriteProperty('CountryCode');
+WriteProperty('CountryName');
+WriteProperty('City');
+WriteProperty('Region');
+WriteProperty('RegionName');
+WriteProperty('Latitude');
+WriteProperty('Longitude');
+WriteProperty('PostalCode');
+WriteProperty('AreaCode');
+WriteProperty('MetroCode');
+</script>
+
+</body>
+</html>
